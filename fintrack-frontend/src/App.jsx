@@ -1,12 +1,22 @@
 import { useState } from 'react'
 import './App.css'
+import Home from './pages/Home'
+import Navbar from './components/Navbar'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div>
-     <h1 className='bg-slate-600'> Zain</h1>
+     <BrowserRouter>
+      <div className="bg-bg text-text min-h-screen">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
     </div>
   )
 }
