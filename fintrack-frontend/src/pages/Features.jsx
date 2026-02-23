@@ -40,49 +40,44 @@ const features = [
 
 const Features = () => {
   return (
-    <div className="px-6 md:px-10 py-16">
-      
-      {/* Hero */}
-      <div className="max-w-3xl mb-16">
-        <h1 className="text-4xl font-bold mb-4">
-          Powerful features to manage your money
+    <div className="min-h-screen bg-bg text-text px-6 md:px-10 py-20">
+
+      {/* Hero Section */}
+      <section className="max-w-4xl mx-auto text-center mb-16">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          Powerful Features to Manage Your Money
         </h1>
-        <p className="text-muted">
-          FinTrack gives you everything you need to track expenses, manage income,
-          and gain financial clarity — all in one secure platform.
+        <p className="text-muted text-lg md:text-xl">
+          FinTrack gives you everything you need to track expenses, manage income, and gain financial clarity — all in one secure, sleek platform.
         </p>
-      </div>
+      </section>
 
       {/* Feature Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
         {features.map((feature, i) => (
           <div
             key={i}
-            className="bg-surface border border-border rounded-xl p-6 hover:-translate-y-1 transition"
+            className="bg-surface border border-border rounded-2xl p-6 md:p-8 flex flex-col items-start hover:-translate-y-2 transition-all duration-300 shadow-lg"
           >
-            <div className="text-3xl mb-4">{feature.icon}</div>
-            <h3 className="text-xl font-semibold mb-2">
-              {feature.title}
-            </h3>
-            <p className="text-muted">
-              {feature.desc}
-            </p>
+            <div className="text-4xl mb-4">{feature.icon}</div>
+            <h3 className="text-xl md:text-2xl font-semibold mb-2">{feature.title}</h3>
+            <p className="text-muted text-sm md:text-base">{feature.desc}</p>
           </div>
         ))}
-      </div>
+      </section>
 
-      {/* CTA */}
-      <div className="mt-20 text-center bg-gradient-to-r from-primary/20 to-income/10 border border-border rounded-2xl p-10">
-        <h2 className="text-3xl font-bold">
-          Ready to take control of your finances?
+      {/* CTA Section */}
+      <section className="max-w-3xl mx-auto bg-gradient-to-r from-primary/20 to-income/10 border border-border rounded-3xl p-10 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          Ready to Take Control of Your Finances?
         </h2>
-        <p className="text-muted mt-4">
+        <p className="text-muted text-lg mb-6">
           Create a free account and start tracking today.
         </p>
-        <button className="mt-6 px-8 py-3 bg-primary rounded-lg text-white">
+        <button className="px-8 py-3 bg-primary rounded-lg text-white text-lg md:text-xl hover:brightness-110 transition">
           Get Started
         </button>
-      </div>
+      </section>
 
     </div>
   );

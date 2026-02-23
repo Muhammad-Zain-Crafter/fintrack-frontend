@@ -1,23 +1,53 @@
-import { useState } from 'react'
 import './App.css'
-import Home from './pages/Home'
-import Navbar from './components/Navbar'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Features from './pages/Features';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <div>
+          <Navbar/>
+          <Home />
+        </div>
+      )
+    },
+     {
+      path: "/features",
+      element: (
+        <div>
+          <Navbar/>
+          <Features/>
+        </div>
+      )
+     },
+     {
+      path: "/login",
+      element: (
+        <div>
+          <Login/>
+        </div>
+      )
+     },
+     {
+      path: "/register",
+      element: (
+        <div>
+          <Register/>
+        </div>
+      )
+     }
+  ])
   return (
-    <div>
-     <BrowserRouter>
-      <div className="bg-bg text-text min-h-screen">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+      <div>
+      <RouterProvider router={router}></RouterProvider>
     </div>
+  
   )
 }
 

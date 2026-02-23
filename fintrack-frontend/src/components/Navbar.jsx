@@ -35,7 +35,7 @@ const Navbar = () => {
 
           <button
             onClick={() => navigate("/login")}
-            className="px-4 py-2 rounded-lg border border-border hover:bg-surface"
+            className="px-4 py-2 rounded-lg border border-border hover:bg-surface text-white"
           >
             Login
           </button>

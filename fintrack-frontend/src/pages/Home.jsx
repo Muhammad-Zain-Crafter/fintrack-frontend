@@ -1,61 +1,77 @@
 import React from "react";
-
+import CountUp from "react-countup";
 const Home = () => {
+  const summary = {
+    income: 16500,
+    expenses: 3920,
+    balance: 12580,
+  };
   return (
     <div className="min-h-screen bg-bg text-text">
       
       {/* Hero Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-12 px-10 py-20">
-        
-        {/* Left */}
-        <div>
-          <h2 className="md:text-5xl text-3xl font-bold leading-tight">
-            Track Expenses. <br />
-            Control Money. <br />
-            <span className="text-primary">Build Better Habits.</span>
-          </h2>
+     <section className="grid grid-cols-1 md:grid-cols-2 gap-12 px-10 py-16 items-center min-h-screen">
 
-          <p className="text-muted mt-6 max-w-xl">
-            FinTrack helps you manage income, monitor expenses, and get
-            monthly financial insights — all in one clean dashboard.
-          </p>
+      {/* Left – Hero Text */}
+      <div>
+        <h2 className="md:text-5xl text-3xl font-bold leading-tight">
+          Track Expenses. <br />
+          Control Money. <br />
+          <span className="text-primary">Build Better Habits.</span>
+        </h2>
 
-          <div className="mt-8 flex gap-4">
-            <button className="px-6 py-3 bg-primary rounded-lg text-white text-lg">
-              Get Started
-            </button>
-            <button className="px-6 py-3 border border-border rounded-lg text-lg">
-              View Demo
-            </button>
-          </div>
+        <p className="text-muted mt-6 max-w-xl">
+          FinTrack helps you manage income, monitor expenses, and get
+          monthly financial insights — all in one clean dashboard.
+        </p>
+
+        <div className="mt-8 flex gap-4 flex-wrap">
+          <button className="md:px-6 md:py-3 py-2 px-4 bg-primary rounded-lg text-white text-lg hover:backdrop-brightness-90 transition">
+            Get Started
+          </button>
+          <button className="md:px-6 md:py-3 py-2 px-4 border border-border rounded-lg text-lg hover:bg-surface transition">
+            View Demo
+          </button>
         </div>
+      </div>
 
-        {/* Right – Preview Cards */}
-        <div className="relative">
-          <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/20 blur-3xl rounded-full"></div>
+      {/* Right – Animated Monthly Summary */}
+      <div className="relative">
+        {/* Background Glow */}
+        <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/20 blur-3xl rounded-full"></div>
 
-          <div className="bg-surface border border-border rounded-xl p-6 space-y-4">
-            <h3 className="text-lg font-semibold">Monthly Summary</h3>
+        <div className="bg-surface border border-border rounded-xl p-6 md:p-8 space-y-6 shadow-lg">
+          <h3 className="text-lg font-semibold mb-4">Monthly Summary</h3>
 
-            <div className="grid grid-cols-3 gap-4">
-              <div className="bg-bg p-4 rounded-lg">
-                <p className="text-muted text-sm">Income</p>
-                <p className="text-income text-xl font-bold">$16,500</p>
-              </div>
+          <div className="grid grid-cols-3 gap-4">
+            {/* Income */}
+            <div className="bg-bg p-4 rounded-lg flex flex-col items-start">
+              <p className="text-muted text-sm">Income</p>
+              <p className="text-income text-xl md:text-2xl font-bold">
+                $<CountUp end={summary.income} duration={3} separator="," />
+              </p>
+            </div>
 
-              <div className="bg-bg p-4 rounded-lg">
-                <p className="text-muted text-sm">Expenses</p>
-                <p className="text-expense text-xl font-bold">$3,920</p>
-              </div>
+            {/* Expenses */}
+            <div className="bg-bg p-4 rounded-lg flex flex-col items-start">
+              <p className="text-muted text-sm">Expenses</p>
+              <p className="text-expense text-xl md:text-2xl font-bold">
+                $<CountUp end={summary.expenses} duration={3} separator="," />
+              </p>
+            </div>
 
-              <div className="bg-bg p-4 rounded-lg">
-                <p className="text-muted text-sm">Balance</p>
-                <p className="text-primary text-xl font-bold">$12,580</p>
-              </div>
+            {/* Balance */}
+            <div className="bg-bg p-4 rounded-lg flex flex-col items-start">
+              <p className="text-muted text-sm">Balance</p>
+              <p className="text-primary text-xl md:text-2xl font-bold">
+                $<CountUp end={summary.balance} duration={3} separator="," />
+              </p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+    </section>
 
       {/* Features */}
       <section className="px-10 py-16">
