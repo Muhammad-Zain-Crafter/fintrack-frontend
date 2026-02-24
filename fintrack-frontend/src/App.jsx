@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Features from './pages/Features';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
+import Dashboard from './pages/dashboard/Dashboard';
 
 function App() {
   const router = createBrowserRouter([
@@ -39,6 +40,14 @@ function App() {
       element: (
         <div>
           <Register/>
+        </div>
+      )
+     },
+      {
+      path: "/dashboard",
+      element: (
+        <div>
+          <Dashboard/>
         </div>
       )
      }
