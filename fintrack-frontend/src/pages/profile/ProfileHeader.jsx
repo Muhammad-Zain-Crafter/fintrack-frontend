@@ -1,5 +1,5 @@
 import { User } from "lucide-react";
-import useProfile from "../hooks/useProfile";
+import useProfile from "../hooks/useProfile.js";
 
 const ProfileHeader = () => {
   const { user, loading } = useProfile();
@@ -27,7 +27,7 @@ const ProfileHeader = () => {
 
       {/* User Info */}
       <div>
-        <h4 className="font-semibold leading-tight">
+        <h4 className="font-semibold leading-tight text-white">
           {user.fullname}
         </h4>
         <p className="text-sm text-muted">

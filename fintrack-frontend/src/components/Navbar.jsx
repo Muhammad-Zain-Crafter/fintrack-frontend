@@ -29,10 +29,6 @@ const Navbar = () => {
           <NavLink to="/features" className={navLinkClass}>
             Features
           </NavLink>
-          <NavLink to="/about" className={navLinkClass}>
-            About
-          </NavLink>
-
           <button
             onClick={() => navigate("/login")}
             className="px-4 py-2 rounded-lg border border-border hover:bg-surface text-white"
@@ -72,14 +68,6 @@ const Navbar = () => {
               className={navLinkClass}
             >
               Features
-            </NavLink>
-
-            <NavLink
-              onClick={() => setOpen(false)}
-              to="/about"
-              className={navLinkClass}
-            >
-              About
             </NavLink>
           </div>
           <button

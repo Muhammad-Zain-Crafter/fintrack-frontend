@@ -11,8 +11,8 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-bg text-text">
       {/* Hero Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-12 px-10 py-16 items-center min-h-screen">
-        {/* Left – Hero Text */}
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-12 px-10 py-16 items-center">
+        {/* Hero Text */}
         <div>
           <h2 className="md:text-5xl text-3xl font-bold leading-tight">
             Track Expenses. <br />
@@ -32,25 +32,25 @@ const Home = () => {
             >
               Get Started
             </button>
-            <button className="md:px-6 md:py-3 py-2 px-4 border border-border rounded-lg text-lg hover:bg-surface transition">
-              View Demo
+            <button onClick={() => navigate('/features')}
+            className="md:px-6 md:py-3 py-2 px-4 border border-border rounded-lg text-lg hover:bg-surface transition">
+              Learn More
             </button>
           </div>
         </div>
 
-        {/* Right – Animated Monthly Summary */}
+        {/* Monthly Summary */}
         <div className="relative">
-          {/* Background Glow */}
           <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary/20 blur-3xl rounded-full"></div>
 
           <div className="bg-surface border border-border rounded-xl p-6 md:p-8 space-y-6 shadow-lg">
             <h3 className="text-lg font-semibold mb-4">Monthly Summary</h3>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-3 grid-cols-1 gap-4 ">
               {/* Income */}
               <div className="bg-bg p-4 rounded-lg flex flex-col items-start">
                 <p className="text-muted text-sm">Income</p>
-                <p className="text-income text-xl md:text-2xl font-bold">
+                <p className="text-income text-xl font-bold">
                   $<CountUp end={summary.income} duration={3} separator="," />
                 </p>
               </div>
@@ -58,7 +58,7 @@ const Home = () => {
               {/* Expenses */}
               <div className="bg-bg p-4 rounded-lg flex flex-col items-start">
                 <p className="text-muted text-sm">Expenses</p>
-                <p className="text-expense text-xl md:text-2xl font-bold">
+                <p className="text-expense text-xl font-bold">
                   $<CountUp end={summary.expenses} duration={3} separator="," />
                 </p>
               </div>
@@ -66,7 +66,7 @@ const Home = () => {
               {/* Balance */}
               <div className="bg-bg p-4 rounded-lg flex flex-col items-start">
                 <p className="text-muted text-sm">Balance</p>
-                <p className="text-primary text-xl md:text-2xl font-bold">
+                <p className="text-primary text-xl font-bold">
                   $<CountUp end={summary.balance} duration={3} separator="," />
                 </p>
               </div>

@@ -10,7 +10,7 @@ const useProfile = () => {
       try {
         const res = await API.get("api/v1/expense-tracker/users/profile");
         console.log(res.data.data);
-        setUser(res.data.user);
+        setUser(res.data.data);
       } catch (err) {
         console.error("Profile fetch failed", err);
       } finally {
