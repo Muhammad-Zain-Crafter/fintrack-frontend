@@ -1,5 +1,11 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import ProfileHeader from "../profile/ProfileHeader";
+import {
+  LayoutDashboard,
+  TrendingUp ,
+  CreditCard,
+  Wallet,
+} from "lucide-react";
 
 const Dashboard = ({ children }) => {
   const navigate = useNavigate();
@@ -20,65 +26,71 @@ const Dashboard = ({ children }) => {
           </div>
 
           <nav className="space-y-3 text-sm">
-
   <NavLink
     to="/dashboard"
     className={({ isActive }) =>
-      isActive
-        ? "block text-white font-medium"
-        : "block text-muted hover:text-white"
+      `flex items-center gap-3 ${
+        isActive
+          ? "text-white font-medium"
+          : "text-muted hover:text-white"
+      }`
     }
   >
+    <LayoutDashboard size={18} />
     Dashboard
   </NavLink>
 
   <NavLink
     to="/income"
     className={({ isActive }) =>
-      isActive
-        ? "block text-white font-medium"
-        : "block text-muted hover:text-white"
+      `flex items-center gap-3 ${
+        isActive
+          ? "text-white font-medium"
+          : "text-muted hover:text-white"
+      }`
     }
   >
+    <TrendingUp  size={18} />
     Income
   </NavLink>
 
   <NavLink
     to="/transactions"
     className={({ isActive }) =>
-      isActive
-        ? "block text-white font-medium"
-        : "block text-muted hover:text-white"
+      `flex items-center gap-3 ${
+        isActive
+          ? "text-white font-medium"
+          : "text-muted hover:text-white"
+      }`
     }
   >
+    <CreditCard size={18} />
     Transactions
   </NavLink>
 
   <NavLink
     to="/expenses"
     className={({ isActive }) =>
-      isActive
-        ? "block text-white font-medium"
-        : "block text-muted hover:text-white"
+      `flex items-center gap-3 ${
+        isActive
+          ? "text-white font-medium"
+          : "text-muted hover:text-white"
+      }`
     }
   >
+    <Wallet size={18} />
     Expenses
   </NavLink>
-
 </nav>
         </div>
 
-        <button className="text-red-500"
-        onClick={handleLogout}>Sign Out</button>
+        <button className="text-red-500" onClick={handleLogout}>
+          Sign Out
+        </button>
       </aside>
 
       {/* Main Dynamic Content */}
       <main className="flex-1 space-y-6">{children}</main>
-
-      {/* Right Panel */}
-      <aside className="w-80 bg-surface rounded-2xl p-6 border border-border">
-        <h4 className="font-semibold mb-4">Recent History</h4>
-      </aside>
     </div>
   );
 };

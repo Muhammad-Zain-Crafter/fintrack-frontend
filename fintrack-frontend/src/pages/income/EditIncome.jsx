@@ -1,13 +1,15 @@
 import { useState } from "react";
 import API from "../../services/api";
-import { Trash2, Pencil, Check, X } from "lucide-react";
+import { Trash2, Pencil, Check, X, Calendar } from "lucide-react";
 
 const EditIncome = ({ income, onChange }) => {
   const [isEditing, setIsEditing] = useState(false);
+
   const [form, setForm] = useState({
     source: income.source,
     amount: income.amount,
-    date: income.date?.split("T")[0], // format for input type="date"
+    date: income.date?.split("T")[0],
+    description: income.description || "",
   });
 
   // UPDATE
@@ -15,7 +17,7 @@ const EditIncome = ({ income, onChange }) => {
     try {
       await API.put(
         `/api/v1/expense-tracker/incomes/update-income/${income._id}`,
-        form
+        form,
       );
       setIsEditing(false);
       onChange();
@@ -28,7 +30,7 @@ const EditIncome = ({ income, onChange }) => {
   const handleDelete = async () => {
     try {
       await API.delete(
-        `/api/v1/expense-tracker/incomes/delete-income/${income._id}`
+        `/api/v1/expense-tracker/incomes/delete-income/${income._id}`,
       );
       onChange();
     } catch (err) {
@@ -37,43 +39,43 @@ const EditIncome = ({ income, onChange }) => {
   };
 
   return (
-    <div className="bg-surface border border-border rounded-2xl p-5 flex justify-between items-center hover:shadow-md transition-all duration-200">
-
+    <div className="bg-surface border border-border rounded-2xl p-5 flex justify-between items-center hover:shadow-md transition-all">
       {isEditing ? (
         <div className="w-full space-y-3">
-
           <input
-            className="w-full bg-bg border border-border rounded-lg p-3 text-sm"
-            value={form.title}
-            onChange={(e) =>
-              setForm({ ...form, title: e.target.value })
-            }
+            className="w-full bg-bg border border-border rounded-lg p-3 text-sm text-white"
+            placeholder="Source"
+            value={form.source}
+            onChange={(e) => setForm({ ...form, source: e.target.value })}
+          />
+
+          <textarea
+            className="w-full bg-bg border border-border rounded-lg p-3 text-sm text-white"
+            placeholder="Description"
+            value={form.description}
+            onChange={(e) => setForm({ ...form, description: e.target.value })}
           />
 
           <div className="flex gap-3">
             <input
               type="number"
-              className="flex-1 bg-bg border border-border rounded-lg p-3 text-sm"
+              className="flex-1 bg-bg border border-border rounded-lg p-3 text-sm text-white"
               value={form.amount}
-              onChange={(e) =>
-                setForm({ ...form, amount: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, amount: e.target.value })}
             />
 
             <input
               type="date"
-              className="flex-1 bg-bg border border-border rounded-lg p-3 text-sm"
+              className="flex-1 bg-bg border border-border rounded-lg p-3 text-sm text-white"
               value={form.date}
-              onChange={(e) =>
-                setForm({ ...form, date: e.target.value })
-              }
+              onChange={(e) => setForm({ ...form, date: e.target.value })}
             />
           </div>
 
           <div className="flex justify-end gap-3 pt-2">
             <button
               onClick={handleUpdate}
-              className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg text-sm transition"
+              className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg text-sm"
             >
               <Check size={16} />
               Save
@@ -81,7 +83,7 @@ const EditIncome = ({ income, onChange }) => {
 
             <button
               onClick={() => setIsEditing(false)}
-              className="flex items-center gap-2 bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg text-sm transition"
+              className="flex items-center gap-2 bg-gray-500 text-white px-4 py-2 rounded-lg text-sm"
             >
               <X size={16} />
               Cancel
@@ -90,34 +92,36 @@ const EditIncome = ({ income, onChange }) => {
         </div>
       ) : (
         <>
-          {/* Left Section */}
+          {/* LEFT */}
           <div>
-            <h4 className="font-semibold text-base">
-              {income.title}
-            </h4>
+            <h4 className="font-semibold text-white">{income.source}</h4>
+            <div className="flex flex-row gap-6">
+            {income.description && (
+              <p className="text-sm text-muted mt-1">{income.description}</p>
+            )}
 
-            <div className="flex gap-4 text-sm text-muted mt-1">
-              <span>
-                📅 {new Date(income.date).toLocaleDateString()}
-              </span>
+            <div className="flex items-center gap-1 text-xs text-muted mt-1">
+              <Calendar size={14} className="opacity-70" />
+              <span>{new Date(income.date).toLocaleDateString()}</span>
+            </div>
             </div>
           </div>
 
-          {/* Right Section */}
+          {/* RIGHT */}
           <div className="flex items-center gap-6">
             <span className="text-green-500 font-semibold text-lg">
-              ₨ {Number(income.amount).toLocaleString()}
+              ${Number(income.amount).toLocaleString()}
             </span>
 
             <Pencil
               size={18}
-              className="cursor-pointer text-muted hover:text-blue-500 transition"
+              className="cursor-pointer text-muted hover:text-blue-500"
               onClick={() => setIsEditing(true)}
             />
 
             <Trash2
               size={18}
-              className="cursor-pointer text-muted hover:text-red-500 transition"
+              className="cursor-pointer text-muted hover:text-red-500"
               onClick={handleDelete}
             />
           </div>

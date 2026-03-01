@@ -33,15 +33,11 @@ const Income = () => {
 
   return (
     <div className="space-y-6">
-
-      {/* Title */}
-      <h2 className="text-2xl font-semibold">Incomes</h2>
-
-      {/* Total Income Bar */}
-      <div className="bg-surface rounded-2xl p-6 border border-border flex justify-between items-center">
-        <h3 className="text-lg font-medium">Total Income:</h3>
-        <p className="text-2xl font-bold text-green-500">
-          ₨ {totalIncome.toLocaleString()}
+      <div className="bg-surface rounded-2xl p-4 border border-border flex items-center
+       justify-center gap-2">
+        <h3 className="text-lg font-semibold text-white">Total Income:</h3>
+        <p className="text-3xl font-bold text-green-500">
+        ${totalIncome.toLocaleString()}
         </p>
       </div>
 
@@ -49,12 +45,12 @@ const Income = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
         {/* LEFT SIDE — Add Income */}
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 max-w-xl">
           <AddIncome onAdded={fetchIncomes} />
         </div>
 
         {/* RIGHT SIDE — Income List */}
-        <div className="lg:col-span-2 space-y-4">
+        <div className="lg:col-span-2 space-y-4 h-auto max-h-[70vh] overflow-y-auto">
           {incomes.map((income) => (
             <EditIncome
               key={income._id}

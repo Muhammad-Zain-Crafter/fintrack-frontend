@@ -20,7 +20,7 @@ const Home = () => {
             <span className="text-primary">Build Better Habits.</span>
           </h2>
 
-          <p className="text-muted mt-6 max-w-xl">
+          <p className="text-muted mt-6 max-w-lg">
             FinTrack helps you manage income, monitor expenses, and get monthly
             financial insights — all in one clean dashboard.
           </p>

@@ -7,6 +7,8 @@ import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import Dashboard from './pages/dashboard/Dashboard';
 import Income from './pages/income/Income';
+import Expense from './pages/expenses/Expenses';
+import Expenses from './pages/expenses/Expenses';
 
 function App() {
   const router = createBrowserRouter([
@@ -58,6 +60,16 @@ function App() {
         <div>
           <Dashboard>
           <Income/>
+          </Dashboard>
+        </div>
+      )
+     },
+      {
+      path: "/expenses",
+      element: (
+        <div>
+          <Dashboard>
+          <Expenses/>
           </Dashboard>
         </div>
       )
