@@ -1,0 +1,143 @@
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import ProfileHeader from "../profile/ProfileHeader";
+import {
+  LayoutDashboard,
+  TrendingUp,
+  CreditCard,
+  Wallet,
+  Target,
+  KeyRound,
+  User,
+} from "lucide-react";
+
+const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
+  return (
+    <div className="min-h-screen bg-background text-foreground flex p-6 gap-6 bg-bg">
+      {/* Sidebar */}
+      <aside className="w-64 bg-surface rounded-2xl p-6 flex flex-col justify-between border border-border">
+        <div>
+          <div className="flex items-center gap-3 mb-10">
+            <ProfileHeader />
+          </div>
+
+          <nav className="space-y-3 text-sm">
+            <NavLink
+              to="/dashboard"
+              end // ensures this is only active for exact path match
+              className={({ isActive }) =>
+                `flex items-center gap-3 ${
+                  isActive
+                    ? "text-white font-medium"
+                    : "text-muted hover:text-white"
+                }`
+              }
+            >
+              <LayoutDashboard size={18} />
+              Dashboard
+            </NavLink>
+
+            <NavLink
+              to="/dashboard/income"
+              className={({ isActive }) =>
+                `flex items-center gap-3 ${
+                  isActive
+                    ? "text-white font-medium"
+                    : "text-muted hover:text-white"
+                }`
+              }
+            >
+              <TrendingUp size={18} />
+              Income
+            </NavLink>
+
+            <NavLink
+              to="/dashboard/transactions"
+              className={({ isActive }) =>
+                `flex items-center gap-3 ${
+                  isActive
+                    ? "text-white font-medium"
+                    : "text-muted hover:text-white"
+                }`
+              }
+            >
+              <CreditCard size={18} />
+              Transactions
+            </NavLink>
+
+            <NavLink
+              to="/dashboard/expenses"
+              className={({ isActive }) =>
+                `flex items-center gap-3 ${
+                  isActive
+                    ? "text-white font-medium"
+                    : "text-muted hover:text-white"
+                }`
+              }
+            >
+              <Wallet size={18} />
+              Expenses
+            </NavLink>
+            <NavLink
+              to="/dashboard/budgets"
+              className={({ isActive }) =>
+                `flex items-center gap-3 ${
+                  isActive
+                    ? "text-white font-medium"
+                    : "text-muted hover:text-white"
+                }`
+              }
+            >
+              <Target size={18} />
+              Budgets
+            </NavLink>
+            <NavLink
+              to="/dashboard/edit-profile"
+              className={({ isActive }) =>
+                `flex items-center gap-3 ${
+                  isActive
+                    ? "text-white font-medium"
+                    : "text-muted hover:text-white"
+                }`
+              }
+            >
+              <User size={18} />
+              Edit Profile
+            </NavLink>
+
+            <NavLink
+              to="/dashboard/change-password"
+              className={({ isActive }) =>
+                `flex items-center gap-3 ${
+                  isActive
+                    ? "text-white font-medium"
+                    : "text-muted hover:text-white"
+                }`
+              }
+            >
+              <KeyRound size={18} />
+              Change Password
+            </NavLink>
+          </nav>
+        </div>
+
+        <button className="text-red-500" onClick={handleLogout}>
+          Sign Out
+        </button>
+      </aside>
+
+      {/* Main Dynamic Content */}
+      <main className="flex-1 space-y-6">
+        <Outlet />
+      </main>
+    </div>
+  );
+};
+
+export default Dashboard;
