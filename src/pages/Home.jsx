@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-bg text-text">
       {/* Hero Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-12 px-10 py-16 items-center text-center">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-12 px-10 py-16 items-center md:text-left text-center">
         {/* Hero Text */}
         <div>
           <h2 className="md:text-5xl text-3xl font-bold leading-tight">
@@ -25,7 +25,7 @@ const Home = () => {
             financial insights — all in one clean dashboard.
           </p>
 
-          <div className="mt-8 flex gap-4 flex-wrap items-center justify-center">
+          <div className="mt-8 flex gap-4 flex-wrap md:justify-start justify-center">
             <button
               onClick={() => navigate("login")}
               className="md:px-6 md:py-3 py-2 px-4 bg-primary rounded-lg text-white text-lg hover:backdrop-brightness-90 transition"
@@ -48,7 +48,7 @@ const Home = () => {
 
             <div className="grid md:grid-cols-3 grid-cols-1 gap-4 ">
               {/* Income */}
-              <div className="bg-bg p-4 rounded-lg flex flex-col items-start">
+              <div className="bg-bg md:p-4 p-2.5 rounded-lg flex flex-col items-start">
                 <p className="text-muted text-sm">Income</p>
                 <p className="text-income text-xl font-bold">
                   $<CountUp end={summary.income} duration={3} separator="," />
@@ -56,7 +56,7 @@ const Home = () => {
               </div>
 
               {/* Expenses */}
-              <div className="bg-bg p-4 rounded-lg flex flex-col items-start">
+              <div className="bg-bg md:p-4 p-2.5 rounded-lg flex flex-col items-start">
                 <p className="text-muted text-sm">Expenses</p>
                 <p className="text-expense text-xl font-bold">
                   $<CountUp end={summary.expenses} duration={3} separator="," />
@@ -64,7 +64,7 @@ const Home = () => {
               </div>
 
               {/* Balance */}
-              <div className="bg-bg p-4 rounded-lg flex flex-col items-start">
+              <div className="bg-bg md:p-4 p-2.5 rounded-lg flex flex-col items-start">
                 <p className="text-muted text-sm">Balance</p>
                 <p className="text-primary text-xl font-bold">
                   $<CountUp end={summary.balance} duration={3} separator="," />

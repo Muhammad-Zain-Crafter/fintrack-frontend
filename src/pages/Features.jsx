@@ -44,7 +44,7 @@ const Features = () => {
 
       {/* Hero Section */}
       <section className="max-w-4xl mx-auto text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4">
           Powerful Features to Manage Your Money
         </h1>
         <p className="text-muted text-lg md:text-xl">
@@ -68,13 +68,13 @@ const Features = () => {
 
       {/* CTA Section */}
       <section className="max-w-3xl mx-auto bg-gradient-to-r from-primary/20 to-income/10 border border-border rounded-3xl p-10 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <h2 className="text-2xl md:text-4xl font-bold mb-4">
           Ready to Take Control of Your Finances?
         </h2>
-        <p className="text-muted text-lg mb-6">
+        <p className="text-muted text-base mb-6">
           Create a free account and start tracking today.
         </p>
-        <button className="px-8 py-3 bg-primary rounded-lg text-white text-lg md:text-xl hover:brightness-110 transition">
+        <button className="md:px-8 md:py-3 px-4 py-2 bg-primary rounded-lg text-white text-lg md:text-xl hover:brightness-110 transition">
           Get Started
         </button>
       </section>
