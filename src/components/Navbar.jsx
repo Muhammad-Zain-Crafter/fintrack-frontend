@@ -75,7 +75,7 @@ const Navbar = () => {
               setOpen(false);
               navigate("/login");
             }}
-            className="block w-full px-4 py-2 border border-border rounded-lg"
+            className="block w-full px-4 py-2 border border-border rounded-lg text-white"
           >
             Login
           </button>

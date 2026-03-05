@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-bg text-text">
       {/* Hero Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-12 px-10 py-16 items-center">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-12 px-10 py-16 items-center text-center">
         {/* Hero Text */}
         <div>
           <h2 className="md:text-5xl text-3xl font-bold leading-tight">
@@ -25,7 +25,7 @@ const Home = () => {
             financial insights — all in one clean dashboard.
           </p>
 
-          <div className="mt-8 flex gap-4 flex-wrap">
+          <div className="mt-8 flex gap-4 flex-wrap items-center justify-center">
             <button
               onClick={() => navigate("login")}
               className="md:px-6 md:py-3 py-2 px-4 bg-primary rounded-lg text-white text-lg hover:backdrop-brightness-90 transition"
@@ -155,7 +155,7 @@ const Home = () => {
       {/* CTA */}
       <section className="px-10 py-20">
         <div className="bg-gradient-to-r from-primary/20 to-income/10 border border-border rounded-2xl p-10 text-center">
-          <h3 className="text-3xl font-bold">
+          <h3 className="md:text-3xl text-xl font-bold">
             Start Tracking Your Money Today
           </h3>
           <p className="text-muted mt-4">
@@ -163,7 +163,7 @@ const Home = () => {
           </p>
           <button
             onClick={() => navigate("/register")}
-            className="mt-6 px-8 py-3 bg-primary rounded-lg text-white text-lg"
+            className="mt-6 md:px-8 md:py-3 px-4 py-1 bg-primary rounded-lg text-white text-lg"
           >
             Create Free Account
           </button>
