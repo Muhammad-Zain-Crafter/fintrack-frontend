@@ -28,7 +28,15 @@ const AddIncome = ({ onAdded }) => {
         className="w-full bg-bg border border-border rounded-lg p-3 text-sm text-white"
         placeholder="Income Source"
         value={form.source}
-        onChange={(e) => setForm({ ...form, source: e.target.value })}
+        onChange={(e) => {
+          const value = e.target.value;
+          if (/^[A-Za-z\s]*$/.test(value)) {
+            setForm({ ...form, source: value });
+            setError("");
+          } else {
+            setError("Only letters are allowed");
+          }
+        }}
       />
 
       <input

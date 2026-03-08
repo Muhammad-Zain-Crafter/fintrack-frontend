@@ -51,15 +51,13 @@ const AddExpense = ({ onAdded }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-surface p-5 rounded-2xl border border-border space-y-3"
+      className="bg-surface p-5 rounded-2xl border border-border space-y-2.5"
     >
       <h3 className="font-semibold text-lg text-white">Add Expense</h3>
 
-      {/* 🚨 Budget Error */}
       {error && (
-       
-    <div className="bg-red-500/10 border flex flex-row gap-2 items-center border-red-500 text-red-400 rounded-lg p-3 text-sm">
-          <AlertCircle size={18}/>
+        <div className="bg-red-500/10 border flex flex-row gap-2 items-center border-red-500 text-red-400 rounded-lg p-3 text-sm">
+          <AlertCircle size={18} />
           <span>{error}</span>
         </div>
       )}
@@ -69,7 +67,15 @@ const AddExpense = ({ onAdded }) => {
         className="w-full bg-bg border border-border rounded-lg p-2.5 text-sm text-white"
         placeholder="Expense Title"
         value={form.title}
-        onChange={(e) => setForm({ ...form, title: e.target.value })}
+        onChange={(e) => {
+          const value = e.target.value;
+          if (/^[A-Za-z\s]*$/.test(value)) {
+            setForm({ ...form, title: value });
+            setError("");
+          } else {
+            setError("Only letters are allowed");
+          }
+        }}
       />
 
       <input

@@ -111,13 +111,13 @@ const DashboardChart = () => {
           />
           <YAxis
             yAxisId="left"
-            tickFormatter={(v) => `$${v / 1000}k`}
+            tickFormatter={(v) => `Rs ${v / 1000}k`}
             tick={{ fill: "#22c55e" }}
           />
           <YAxis
             yAxisId="right"
             orientation="right"
-            tickFormatter={(v) => `$${v / 1000}k`}
+            tickFormatter={(v) => `Rs ${v / 1000}k`}
             tick={{ fill: "#ef4444" }}
           />
           <Tooltip />

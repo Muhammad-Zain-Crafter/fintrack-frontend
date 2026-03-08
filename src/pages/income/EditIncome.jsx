@@ -110,7 +110,7 @@ const EditIncome = ({ income, onChange }) => {
           {/* RIGHT */}
           <div className="flex items-center gap-6">
             <span className="text-green-500 font-semibold text-lg">
-              ${Number(income.amount).toLocaleString()}
+              Rs {Number(income.amount).toLocaleString()}
             </span>
 
             <Pencil

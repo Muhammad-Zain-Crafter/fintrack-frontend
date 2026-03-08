@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-
+import { Menu } from "lucide-react";
 const Navbar = () => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -46,7 +46,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button className="md:hidden text-text" onClick={() => setOpen(!open)}>
-          ☰
+          <Menu size={22}/>
         </button>
       </div>
 

@@ -37,7 +37,7 @@ const Income = () => {
        justify-center gap-2">
         <h3 className="text-lg font-semibold text-white">Total Income:</h3>
         <p className="text-3xl font-bold text-green-500">
-        ${totalIncome.toLocaleString()}
+        Rs {totalIncome.toLocaleString()}
         </p>
       </div>
 
@@ -49,8 +49,8 @@ const Income = () => {
           <AddIncome onAdded={fetchIncomes} />
         </div>
 
-        {/* RIGHT SIDE — Income List */}
-        <div className="lg:col-span-2 space-y-4 h-auto max-h-[70vh] overflow-y-auto">
+        {/* Income List */}
+        <div className="lg:col-span-2 space-y-4 h-auto max-h-[70vh] overflow-y-auto custom-scrollbar">
           {incomes.map((income) => (
             <EditIncome
               key={income._id}

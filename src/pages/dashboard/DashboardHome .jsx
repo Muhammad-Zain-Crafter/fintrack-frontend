@@ -61,21 +61,21 @@ const balance = totalIncome - totalExpense;
         <div className="bg-surface p-5 rounded-xl border border-border">
           <p className="text-sm text-muted">Total Income</p>
           <h2 className="text-2xl font-bold text-green-500">
-            ${totalIncome.toLocaleString()}
+            Rs {totalIncome.toLocaleString()}
           </h2>
         </div>
 
         <div className="bg-surface p-5 rounded-xl border border-border">
           <p className="text-sm text-muted">Total Expenses</p>
           <h2 className="text-2xl font-bold text-red-500">
-            ${totalExpense.toLocaleString()}
+            Rs {totalExpense.toLocaleString()}
           </h2>
         </div>
 
         <div className="bg-surface p-5 rounded-xl border border-border">
           <p className="text-sm text-muted">Balance</p>
           <h2 className="text-2xl font-bold text-primary">
-            ${balance.toLocaleString()}
+            Rs {balance.toLocaleString()}
           </h2>
         </div>
       </div>

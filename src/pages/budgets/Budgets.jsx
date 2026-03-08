@@ -65,7 +65,7 @@ const Budgets = () => {
     <div className="bg-background text-foreground p-3">
       <h1 className="text-2xl font-semibold mb-6 text-white">Budgets</h1>
 
-      {/* ➕ Add Budget */}
+      {/* Add Budget */}
       <div className="bg-surface border border-border rounded-xl p-4 mb-8">
         <h2 className="text-lg font-medium mb-2 text-white">Add Budget</h2>
 
@@ -148,7 +148,7 @@ const Budgets = () => {
 
                 <div className="flex items-center gap-4">
                   <p className="font-semibold text-green-500">
-                    ${budget.limit}
+                    Rs {budget.limit}
                   </p>
                   <Trash2
                     size={18}

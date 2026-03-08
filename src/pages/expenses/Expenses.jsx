@@ -37,7 +37,7 @@ const Expenses = () => {
       <div className="bg-surface rounded-2xl p-4 border border-border flex items-center justify-center gap-2">
         <h3 className="text-lg font-semibold text-white">Total Expense:</h3>
         <p className="text-3xl font-bold text-red-500">
-          ${totalExpense.toLocaleString()}
+          Rs {totalExpense.toLocaleString()}
         </p>
       </div>
 
@@ -49,7 +49,7 @@ const Expenses = () => {
         </div>
 
         {/* RIGHT — Expense List */}
-        <div className="lg:col-span-2 space-y-4 h-auto max-h-[70vh] overflow-y-auto">
+        <div className="lg:col-span-2 space-y-4 h-auto max-h-[70vh] overflow-y-auto custom-scrollbar">
           {expenses.length === 0 ? (
             <p className="text-muted text-center mt-10">
               No expenses added yet

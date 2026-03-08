@@ -142,7 +142,7 @@ const EditExpenses = ({ expense, onChange }) => {
           {/* RIGHT */}
           <div className="flex items-center gap-6">
             <span className="text-red-500 font-semibold text-lg">
-              -${Number(expense.amount).toLocaleString()}
+              -Rs {Number(expense.amount).toLocaleString()}
             </span>
 
             <Pencil
