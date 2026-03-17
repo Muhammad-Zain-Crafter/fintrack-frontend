@@ -19,18 +19,20 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex p-6 gap-6 bg-bg">
-      {/* Sidebar */}
-      <aside className="w-64 bg-surface rounded-2xl p-6 flex flex-col justify-between border border-border">
+    <div className="min-h-screen bg-background text-foreground flex md:p-6 gap-6 bg-bg">
+
+      {/* Desktop Sidebar */}
+      <aside className="hidden md:flex w-64 bg-surface rounded-2xl p-6 flex-col justify-between border border-border">
         <div>
           <div className="flex items-center gap-3 mb-10">
             <ProfileHeader />
           </div>
 
           <nav className="space-y-3 text-sm">
+
             <NavLink
               to="/dashboard"
-              end // ensures this is only active for exact path match
+              end
               className={({ isActive }) =>
                 `flex items-center gap-3 ${
                   isActive
@@ -84,6 +86,7 @@ const Dashboard = () => {
               <Wallet size={18} />
               Expenses
             </NavLink>
+
             <NavLink
               to="/dashboard/budgets"
               className={({ isActive }) =>
@@ -97,6 +100,7 @@ const Dashboard = () => {
               <Target size={18} />
               Budgets
             </NavLink>
+
             <NavLink
               to="/dashboard/edit-profile"
               className={({ isActive }) =>
@@ -124,18 +128,68 @@ const Dashboard = () => {
               <KeyRound size={18} />
               Change Password
             </NavLink>
+
           </nav>
         </div>
 
-        <button className="text-red-500" onClick={handleLogout}>
+        <button
+          className="text-red-500 hover:text-red-400"
+          onClick={handleLogout}
+        >
           Sign Out
         </button>
       </aside>
 
-      {/* Main Dynamic Content */}
-      <main className="flex-1 space-y-6">
+      {/* Main Content */}
+      <main className="flex-1 space-y-6 pb-20 md:pb-0 p-4 md:p-0">
         <Outlet />
       </main>
+
+      {/* Mobile Bottom Navbar */}
+      <div className="fixed bottom-0 left-0 right-0 md:hidden bg-surface border-t border-border flex justify-around py-2.5">
+
+        <NavLink
+          to="/dashboard"
+          end
+          className="flex flex-col items-center text-xs text-muted"
+        >
+          <LayoutDashboard size={20} />
+          Home
+        </NavLink>
+
+        <NavLink
+          to="/dashboard/income"
+          className="flex flex-col items-center text-xs text-muted"
+        >
+          <TrendingUp size={20} />
+          Income
+        </NavLink>
+
+        <NavLink
+          to="/dashboard/expenses"
+          className="flex flex-col items-center text-xs text-muted"
+        >
+          <Wallet size={20} />
+          Expenses
+        </NavLink>
+
+        <NavLink
+          to="/dashboard/transactions"
+          className="flex flex-col items-center text-xs text-muted"
+        >
+          <CreditCard size={20} />
+          History
+        </NavLink>
+
+        <NavLink
+          to="/dashboard/budgets"
+          className="flex flex-col items-center text-xs text-muted"
+        >
+          <Target size={20} />
+          Budgets
+        </NavLink>
+
+      </div>
     </div>
   );
 };
