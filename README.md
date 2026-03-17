@@ -65,13 +65,3 @@ Each user's financial data is **securely isolated** and accessible only by the a
 ## 🎯 Project Goal
 
 The goal of FinTrack is to provide a **simple yet powerful personal finance tracking tool** that helps users stay aware of their financial habits and manage money more effectively.
-
----
-
-## 🔮 Future Improvements
-
-- Financial charts and analytics
-- Expense filtering and search
-- Recurring transactions
-- Export financial reports
-- Improved mobile responsiveness
