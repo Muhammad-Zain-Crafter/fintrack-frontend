@@ -15,8 +15,14 @@ const Transaction = () => {
         ]);
 
         const combined = [
-          ...(incomeRes.data.data || []).map((item) => ({ ...item, type: "Income" })),
-          ...(expenseRes.data.data || []).map((item) => ({ ...item, type: "Expense" })),
+          ...(incomeRes.data.data || []).map((item) => ({
+            ...item,
+            type: "Income",
+          })),
+          ...(expenseRes.data.data || []).map((item) => ({
+            ...item,
+            type: "Expense",
+          })),
         ];
 
         // Sort by date:
@@ -37,14 +43,18 @@ const Transaction = () => {
 
   // Filter transactions based on selected type
   const filteredTransactions =
-    filter === "All" ? transactions : transactions.filter((t) => t.type === filter);
+    filter === "All"
+      ? transactions
+      : transactions.filter((t) => t.type === filter);
 
   return (
     <div>
-      <h1 className="text-2xl font-semibold mb-4 text-white">All Transactions</h1>
+      <h1 className="text-2xl font-semibold m-4 text-white">
+        All Transactions
+      </h1>
 
       {/* Filter Buttons */}
-      <div className="flex gap-2 mb-4">
+      <div className="flex gap-2 mt-8">
         {["All", "Income", "Expense"].map((type) => (
           <button
             key={type}
@@ -61,35 +71,46 @@ const Transaction = () => {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mt-4">
         {filteredTransactions.length === 0 ? (
           <p>No transactions to display.</p>
         ) : (
-          <table className="w-full border-collapse min-w-[600px]">
-            <thead>
-              <tr className="bg-surface text-left text-white">
-                <th className="px-4 py-2">Date</th>
-                <th className="px-4 py-2">Type</th>
-                <th className="px-4 py-2">Amount</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredTransactions.map((tx, index) => (
-                <tr
-                  key={index}
-                  className={`border-b ${
-                    tx.type === "Expense" ? "text-red-500" : "text-green-500"
-                  }`}
-                >
-                  <td className="px-4 py-2">{new Date(tx.date).toLocaleDateString()}</td>
-                  <td className="px-4 py-2">{tx.type}</td>
-                  <td className="px-4 py-2 font-semibold">
-                    Rs {Number(tx.amount).toLocaleString()}
-                  </td>
+          <div className="w-full overflow-x-auto">
+            <table className="w-full border-collapse max-w-[600px]">
+              <thead>
+                <tr className="bg-surface text-left text-white">
+                  <th className="px-2 sm:px-4 py-2 whitespace-nowrap">Date</th>
+                  <th className="px-2 sm:px-4 py-2 whitespace-nowrap">Type</th>
+                  <th className="px-2 sm:px-4 py-2 whitespace-nowrap">
+                    Amount
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+
+              <tbody>
+                {filteredTransactions.map((tx, index) => (
+                  <tr
+                    key={index}
+                    className={`border-b ${
+                      tx.type === "Expense" ? "text-red-500" : "text-green-500"
+                    }`}
+                  >
+                    <td className="md:px-4 py-2 whitespace-nowrap">
+                      {new Date(tx.date).toLocaleDateString()}
+                    </td>
+
+                    <td className="md:px-4 py-2 whitespace-nowrap">
+                      {tx.type}
+                    </td>
+
+                    <td className="md:px-4 py-2 font-semibold whitespace-nowrap">
+                      Rs {Number(tx.amount).toLocaleString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </div>

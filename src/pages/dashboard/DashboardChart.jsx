@@ -79,68 +79,60 @@ const DashboardChart = () => {
   if (loading) return <p>Loading chart...</p>;
 
   return (
-    <div className="bg-surface p-6 rounded-xl border border-border w-full h-[295px]">
-      <h3 className="text-lg font-semibold mb-4 text-white">All Transactions</h3>
+ <div className="bg-surface p-4 sm:p-6 rounded-xl border border-border w-full h-[250px] sm:h-[295px]">
+  <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-4 text-white">
+    All Transactions
+  </h3>
 
-      <ResponsiveContainer width="100%" height="92%">
-        <LineChart
-          data={chartData}
-          margin={{ top: 20, right: 40, left: 20, bottom: 10 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
-          <XAxis
-            dataKey="date"
-            tickFormatter={(value) =>
-              new Date(value).toLocaleDateString("en-US", {
-                month: "short",
-                day: "numeric",
-              })
-            }
-          />{" "}
-          <XAxis dataKey="date" />
-          <YAxis
-            yAxisId="left"
-            tick={{ fill: "#22c55e" }}
-            axisLine={{ stroke: "#22c55e" }}
-          />
-          <YAxis
-            yAxisId="right"
-            orientation="right"
-            tick={{ fill: "#ef4444" }}
-            axisLine={{ stroke: "#ef4444" }}
-          />
-          <YAxis
-            yAxisId="left"
-            tickFormatter={(v) => `Rs ${v / 1000}k`}
-            tick={{ fill: "#22c55e" }}
-          />
-          <YAxis
-            yAxisId="right"
-            orientation="right"
-            tickFormatter={(v) => `Rs ${v / 1000}k`}
-            tick={{ fill: "#ef4444" }}
-          />
-          <Tooltip />
-          <Legend />
-          <Line
-            yAxisId="left"
-            type="monotone"
-            dataKey="Income"
-            stroke="#22c55e"
-            strokeWidth={2}
-            dot={{ r: 4 }}
-          />
-          <Line
-            yAxisId="right"
-            type="monotone"
-            dataKey="Expenses"
-            stroke="#ef4444"
-            strokeWidth={2}
-            dot={{ r: 4 }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-    </div>
+  <ResponsiveContainer width="100%" height="90%">
+    <LineChart
+      data={chartData}
+      margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+    >
+      <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
+
+      <XAxis
+        dataKey="date"
+        tickFormatter={(value) =>
+          new Date(value).toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+          })
+        }
+        tick={{ fill: "#ffffff", fontSize: 10 }}
+        interval="preserveStartEnd"
+      />
+
+      <YAxis yAxisId="left" tick={{ fill: "#22c55e", fontSize: 10 }} />
+      <YAxis
+        yAxisId="right"
+        orientation="right"
+        tick={{ fill: "#ef4444", fontSize: 10 }}
+      />
+
+      <Tooltip />
+      <Legend wrapperStyle={{ fontSize: "12px" }} />
+
+      <Line
+        yAxisId="left"
+        type="monotone"
+        dataKey="Income"
+        stroke="#22c55e"
+        strokeWidth={2}
+        dot={{ r: 3 }}
+      />
+
+      <Line
+        yAxisId="right"
+        type="monotone"
+        dataKey="Expenses"
+        stroke="#ef4444"
+        strokeWidth={2}
+        dot={{ r: 3 }}
+      />
+    </LineChart>
+  </ResponsiveContainer>
+</div>
   );
 };
 

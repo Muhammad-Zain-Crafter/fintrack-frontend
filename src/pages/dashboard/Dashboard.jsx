@@ -20,7 +20,6 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-background text-foreground flex md:p-6 gap-6 bg-bg">
-
       {/* Desktop Sidebar */}
       <aside className="hidden md:flex w-64 bg-surface rounded-2xl p-6 flex-col justify-between border border-border">
         <div>
@@ -29,7 +28,6 @@ const Dashboard = () => {
           </div>
 
           <nav className="space-y-3 text-sm">
-
             <NavLink
               to="/dashboard"
               end
@@ -128,7 +126,6 @@ const Dashboard = () => {
               <KeyRound size={18} />
               Change Password
             </NavLink>
-
           </nav>
         </div>
 
@@ -146,28 +143,44 @@ const Dashboard = () => {
       </main>
 
       {/* Mobile Bottom Navbar */}
-      <div className="fixed bottom-0 left-0 right-0 md:hidden bg-surface border-t border-border flex justify-around py-2.5">
-
+      <div className="fixed bottom-0 left-0 right-0 md:hidden bg-surface border-t border-border flex justify-around py-3.5">
         <NavLink
           to="/dashboard"
           end
-          className="flex flex-col items-center text-xs text-muted"
+          className={({ isActive }) =>
+            `flex flex-col items-center text-sm ${
+              isActive
+                ? "text-white font-medium"
+                : "text-muted hover:text-white"
+            }`
+          }
         >
           <LayoutDashboard size={20} />
           Home
         </NavLink>
 
-        <NavLink
-          to="/dashboard/income"
-          className="flex flex-col items-center text-xs text-muted"
-        >
+        <NavLink to="/dashboard/income"
+         className={({ isActive }) =>
+            `flex flex-col items-center text-sm ${
+              isActive
+                ? "text-white font-medium"
+                : "text-muted hover:text-white"
+            }`
+          }
+          >
           <TrendingUp size={20} />
           Income
         </NavLink>
 
         <NavLink
           to="/dashboard/expenses"
-          className="flex flex-col items-center text-xs text-muted"
+          className={({ isActive }) =>
+            `flex flex-col items-center text-sm ${
+              isActive
+                ? "text-white font-medium"
+                : "text-muted hover:text-white"
+            }`
+          }
         >
           <Wallet size={20} />
           Expenses
@@ -175,7 +188,13 @@ const Dashboard = () => {
 
         <NavLink
           to="/dashboard/transactions"
-          className="flex flex-col items-center text-xs text-muted"
+          className={({ isActive }) =>
+            `flex flex-col items-center text-sm ${
+              isActive
+                ? "text-white font-medium"
+                : "text-muted hover:text-white"
+            }`
+          }
         >
           <CreditCard size={20} />
           History
@@ -183,12 +202,17 @@ const Dashboard = () => {
 
         <NavLink
           to="/dashboard/budgets"
-          className="flex flex-col items-center text-xs text-muted"
+          className={({ isActive }) =>
+            `flex flex-col items-center text-sm ${
+              isActive
+                ? "text-white font-medium"
+                : "text-muted hover:text-white"
+            }`
+          }
         >
           <Target size={20} />
           Budgets
         </NavLink>
-
       </div>
     </div>
   );

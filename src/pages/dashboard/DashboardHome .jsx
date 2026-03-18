@@ -12,7 +12,7 @@ const DashboardHome = () => {
   const fetchMonthlySummary = async () => {
     try {
       const res = await API.get(
-        `/api/v1/expense-tracker/dashboard/monthly-summary?month=${month}&year=${year}`
+        `/api/v1/expense-tracker/dashboard/monthly-summary?month=${month}&year=${year}`,
       );
       setSummary(res.data.data);
     } catch (err) {
@@ -29,8 +29,8 @@ const DashboardHome = () => {
   if (loading) return <p className="text-muted">Loading...</p>;
 
   const totalIncome = summary?.income ?? 0;
-const totalExpense = summary?.expense ?? 0;
-const balance = totalIncome - totalExpense;
+  const totalExpense = summary?.expense ?? 0;
+  const balance = totalIncome - totalExpense;
 
   return (
     <div className="space-y-6">
