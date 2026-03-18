@@ -5,8 +5,7 @@ import { Lock, KeyRound, Save } from "lucide-react";
 const ChangePassword = () => {
   const [form, setForm] = useState({
     oldPassword: "",
-    newPassword: "",
-    confirmPassword: "",
+    newPassword: ""
   });
 
   const [message, setMessage] = useState("");
@@ -23,11 +22,6 @@ const ChangePassword = () => {
     setMessage("");
     setError("");
 
-    if (form.newPassword !== form.confirmPassword) {
-      setError("New passwords do not match");
-      return;
-    }
-
     try {
       setLoading(true);
 
@@ -43,8 +37,7 @@ const ChangePassword = () => {
 
       setForm({
         oldPassword: "",
-        newPassword: "",
-        confirmPassword: "",
+        newPassword: ""
       });
 
     } catch (err) {
@@ -55,10 +48,10 @@ const ChangePassword = () => {
   };
 
   return (
-    <div className="p-6 flex justify-center">
-      <div className="w-full max-w-xl bg-bg border border-border rounded-xl p-6">
+    <div className="p-3 flex justify-center">
+      <div className="w-full max-w-lg bg-bg border border-border rounded-xl p-2">
 
-        <h2 className="text-xl font-semibold text-white mb-6">
+        <h2 className="text-lg font-semibold text-white mb-6">
           Change Password
         </h2>
 
@@ -110,27 +103,10 @@ const ChangePassword = () => {
             </div>
           </div>
 
-          {/* Confirm Password */}
-          <div>
-            <label className="text-sm text-muted">Confirm New Password</label>
-
-            <div className="flex items-center border border-border rounded-lg px-3 mt-1">
-              <KeyRound size={18} className="text-white"/>
-              <input
-                type="password"
-                name="confirmPassword"
-                value={form.confirmPassword}
-                onChange={handleChange}
-                placeholder="Confirm new password"
-                className="w-full bg-transparent px-3 py-2 outline-none text-white"
-              />
-            </div>
-          </div>
-
           <button
             type="submit"
             disabled={loading}
-            className="flex items-center justify-center gap-2 bg-primary px-4 py-3 rounded-lg w-full text-white hover:opacity-90"
+            className="flex items-center justify-center gap-2 bg-primary px-4 py-2 rounded-lg w-full text-white hover:opacity-90"
           >
             <Save size={18} />
             {loading ? "Updating..." : "Change Password"}

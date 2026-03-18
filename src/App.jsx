@@ -14,6 +14,7 @@ import Budgets from './pages/budgets/Budgets';
 import Footer from './components/Footer';
 import EditProfile from './pages/profile/EditProfile';
 import ChangePassword from './pages/profile/ChangePassword';
+import Profile from './pages/profile/Profile';
 
 function App() {
   const router = createBrowserRouter([
@@ -62,8 +63,8 @@ function App() {
       { path: "expenses", element: <Expenses /> },
       { path: "transactions", element: <Transaction /> },
       { path: "budgets", element: <Budgets />},
-      { path: "edit-profile", element: <EditProfile /> },
-      { path: "change-password", element: <ChangePassword />}
+      { path: "profile", element: <Profile /> },
+    
     ],
   },
   ])

@@ -6,7 +6,6 @@ import {
   CreditCard,
   Wallet,
   Target,
-  KeyRound,
   User,
 } from "lucide-react";
 
@@ -100,7 +99,7 @@ const Dashboard = () => {
             </NavLink>
 
             <NavLink
-              to="/dashboard/edit-profile"
+              to="/dashboard/profile"
               className={({ isActive }) =>
                 `flex items-center gap-3 ${
                   isActive
@@ -110,21 +109,7 @@ const Dashboard = () => {
               }
             >
               <User size={18} />
-              Edit Profile
-            </NavLink>
-
-            <NavLink
-              to="/dashboard/change-password"
-              className={({ isActive }) =>
-                `flex items-center gap-3 ${
-                  isActive
-                    ? "text-white font-medium"
-                    : "text-muted hover:text-white"
-                }`
-              }
-            >
-              <KeyRound size={18} />
-              Change Password
+              Profile
             </NavLink>
           </nav>
         </div>
@@ -148,7 +133,7 @@ const Dashboard = () => {
           to="/dashboard"
           end
           className={({ isActive }) =>
-            `flex flex-col items-center text-sm ${
+            `flex flex-col items-center text-xs ${
               isActive
                 ? "text-white font-medium"
                 : "text-muted hover:text-white"
@@ -161,7 +146,7 @@ const Dashboard = () => {
 
         <NavLink to="/dashboard/income"
          className={({ isActive }) =>
-            `flex flex-col items-center text-sm ${
+            `flex flex-col items-center text-xs ${
               isActive
                 ? "text-white font-medium"
                 : "text-muted hover:text-white"
@@ -175,7 +160,7 @@ const Dashboard = () => {
         <NavLink
           to="/dashboard/expenses"
           className={({ isActive }) =>
-            `flex flex-col items-center text-sm ${
+            `flex flex-col items-center text-xs ${
               isActive
                 ? "text-white font-medium"
                 : "text-muted hover:text-white"
@@ -189,7 +174,7 @@ const Dashboard = () => {
         <NavLink
           to="/dashboard/transactions"
           className={({ isActive }) =>
-            `flex flex-col items-center text-sm ${
+            `flex flex-col items-center text-xs ${
               isActive
                 ? "text-white font-medium"
                 : "text-muted hover:text-white"
@@ -203,7 +188,7 @@ const Dashboard = () => {
         <NavLink
           to="/dashboard/budgets"
           className={({ isActive }) =>
-            `flex flex-col items-center text-sm ${
+            `flex flex-col items-center text-xs ${
               isActive
                 ? "text-white font-medium"
                 : "text-muted hover:text-white"
@@ -212,6 +197,19 @@ const Dashboard = () => {
         >
           <Target size={20} />
           Budgets
+        </NavLink>
+         <NavLink
+          to="/dashboard/profile"
+          className={({ isActive }) =>
+            `flex flex-col items-center text-xs ${
+              isActive
+                ? "text-white font-medium"
+                : "text-muted hover:text-white"
+            }`
+          }
+        >
+          <User size={20} />
+          Profile
         </NavLink>
       </div>
     </div>
