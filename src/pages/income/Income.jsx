@@ -51,12 +51,19 @@ const Income = () => {
 
         {/* Income List */}
         <div className="lg:col-span-2 space-y-4 h-auto max-h-[70vh] overflow-y-auto custom-scrollbar">
-          {incomes.map((income) => (
+          {incomes.length === 0 ? (
+            <p className="text-muted text-center mt-10">
+              No incomes added yet
+            </p>
+          )
+          : (
+          incomes.map ((income) => (
             <EditIncome
               key={income._id}
               income={income}
               onChange={fetchIncomes}
             />
+          )
           ))}
         </div>
 

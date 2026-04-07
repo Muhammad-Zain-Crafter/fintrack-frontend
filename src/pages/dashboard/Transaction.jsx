@@ -71,7 +71,7 @@ const Transaction = () => {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto mt-4">
+      <div className="overflow-x-auto mt-6 ml-2 text-muted">
         {filteredTransactions.length === 0 ? (
           <p>No transactions to display.</p>
         ) : (
