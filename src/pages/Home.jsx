@@ -96,14 +96,14 @@ const Home = () => {
             <div className="space-y-2">
               <div className="flex justify-between text-sm">
                 <span>Food</span>
-                <span className="text-primary">₹4,200 / ₹6,000</span>
+                <span className="text-primary">Rs 4,200 / Rs 6,000</span>
               </div>
               <div className="w-full h-2 bg-border rounded-full overflow-hidden">
                 <div className="h-full w-[70%] bg-primary rounded-full" />
               </div>
               <div className="flex justify-between text-sm">
                 <span>Transport</span>
-                <span className="text-primary">₹6,200 / ₹8,000</span>
+                <span className="text-primary">Rs 6,200 / Rs 8,000</span>
               </div>
               <div className="w-full h-2 bg-border rounded-full overflow-hidden">
                 <div className="h-full w-[80%] bg-primary rounded-full" />
