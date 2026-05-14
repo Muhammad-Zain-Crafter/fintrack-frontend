@@ -84,7 +84,7 @@ const DashboardChart = () => {
     All Transactions
   </h3>
 
-  <ResponsiveContainer width="100%" height="90%">
+  <ResponsiveContainer width="100%" height="88%">
     <LineChart
       data={chartData}
       margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
