@@ -59,7 +59,6 @@ const DashboardChart = () => {
         Expenses: expenseForDate,
       };
     });
-
     setChartData(data);
   };
 

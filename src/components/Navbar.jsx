@@ -38,7 +38,7 @@ const Navbar = () => {
 
           <button
             onClick={() => navigate("/register")}
-            className="px-4 py-2 rounded-lg bg-primary text-white"
+            className="px-4 py-2 rounded-lg bg-primary text-white font-bold"
           >
             Register
           </button>
@@ -85,7 +85,7 @@ const Navbar = () => {
               setOpen(false);
               navigate("/register");
             }}
-            className="block w-full px-4 py-2 bg-primary text-white rounded-lg"
+            className="block w-full px-4 py-2 bg-primary text-white rounded-lg font-bold"
           >
             Register
           </button>
