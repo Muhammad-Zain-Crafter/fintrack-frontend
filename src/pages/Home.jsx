@@ -51,7 +51,7 @@ const Home = () => {
               <div className="bg-bg md:p-4 p-2.5 rounded-lg flex flex-col items-start">
                 <p className="text-muted text-sm">Income</p>
                 <p className="text-income text-xl font-bold">
-                  $<CountUp end={summary.income} duration={3} separator="," />
+                  Rs. <CountUp end={summary.income} duration={3} separator="," />
                 </p>
               </div>
 
@@ -59,7 +59,7 @@ const Home = () => {
               <div className="bg-bg md:p-4 p-2.5 rounded-lg flex flex-col items-start">
                 <p className="text-muted text-sm">Expenses</p>
                 <p className="text-expense text-xl font-bold">
-                  $<CountUp end={summary.expenses} duration={3} separator="," />
+                  Rs. <CountUp end={summary.expenses} duration={3} separator="," />
                 </p>
               </div>
 
@@ -67,7 +67,7 @@ const Home = () => {
               <div className="bg-bg md:p-4 p-2.5 rounded-lg flex flex-col items-start">
                 <p className="text-muted text-sm">Balance</p>
                 <p className="text-primary text-xl font-bold">
-                  $<CountUp end={summary.balance} duration={3} separator="," />
+                  Rs. <CountUp end={summary.balance} duration={3} separator="," />
                 </p>
               </div>
             </div>
